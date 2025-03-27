@@ -1,1 +1,3 @@
-console.log("HelloWorld!");
+import { watchMonitor } from "./watch.js";
+
+watchMonitor("./src");

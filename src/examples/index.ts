@@ -223,7 +223,7 @@
 //       console.error("No se puede mover entre dispositivos directamente");
 //     } else {
 //       throw err;
-//     }
+//     }d
 //   }
 // });
 
