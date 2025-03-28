@@ -2,7 +2,7 @@ export enum FunkoType {
   POP = "Pop!",
   POP_RIDES = "Pop! Rides",
   VINYL_SODA = "Vynil Soda",
-  VINYL_GOLD = "Vynil Gold"
+  VINYL_GOLD = "Vynil Gold",
 }
 
 export enum FunkoGenre {

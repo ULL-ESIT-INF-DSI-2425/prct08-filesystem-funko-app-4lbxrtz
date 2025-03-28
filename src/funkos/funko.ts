@@ -12,4 +12,3 @@ export interface Funko {
   specialFeatures: string;
   marketValue: number;
 }
-
