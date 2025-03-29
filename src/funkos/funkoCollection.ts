@@ -10,54 +10,46 @@ export class FunkoCollection {
     return Array.from(this._funkos.values());
   }
 
+  public getFunko(id: string): Funko | undefined {
+    return this._funkos.get(id);
+  }
+
   addFunko(funko: Funko): boolean {
     if (this._funkos.has(funko.id)) {
-      console.log(
-        chalk.red(`Error: Funko with ID ${funko.id} already exists.`),
-      );
+      console.log();
       return false;
     }
     this._funkos.set(funko.id, funko);
-    console.log(chalk.green(`Funko ${funko.name} added successfully`));
     return true;
   }
 
   updateFunko(funko: Funko): boolean {
     if (!this._funkos.has(funko.id)) {
-      console.log(chalk.red(`Error: Funko with ID ${funko.id} not found.`));
       return false;
     }
     this._funkos.set(funko.id, funko);
-    console.log(chalk.green(`Funko ${funko.name} updated successfully`));
     return true;
   }
 
   removeFunko(id: string): boolean {
     const funko = this._funkos.get(id);
     if (!funko) {
-      console.log(chalk.red(`Error: Funko with ID ${id} not found.`));
       return false;
     }
     this._funkos.delete(id);
-    console.log(chalk.green(`Funko ${funko.name} removed successfully`));
     return true;
   }
 
   showFunkoInfo(id: string): void {
     const funko = this._funkos.get(id);
     if (!funko) {
-      console.log(chalk.red(`Error: Funko with ID ${id} not found`));
       return;
     }
     this.printFunkoInfo(funko);
   }
 
   listFunkos(): void {
-    if (this._funkos.size === 0) {
-      console.log(chalk.yellow("No Funkos in collection"));
-      return;
-    }
-    console.log(chalk.yellow.bold(`\nFunko collection for ${this.username}:`));
+    if (this._funkos.size === 0) return;
     this._funkos.forEach((funko) => {
       this.printFunkoInfo(funko);
     });
